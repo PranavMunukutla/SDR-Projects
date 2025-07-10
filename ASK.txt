@@ -1,0 +1,2 @@
+Same as ook. Just the  values in vector change.
+With ASK we can transmit more than 1 bit per symbol but it is not bandwidth efficient.
