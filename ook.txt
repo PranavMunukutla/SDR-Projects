@@ -1,0 +1,11 @@
+On off keying communication from the pluto sdr to itself. We are multiplying the carrier with a  vector of values that repeat over time. The communication is happening at 2.4 GHz with a sample rate of 1 MHz.
+
+We have control over tx_attenuation and rx_gain so as not to overload the receiver.
+
+The repeat block has an interpolation of 100 i.e, it repeats each symbol a 100 times and gives out values at 1 MHz. Therefore it is reading from the vector source at 10 KHz.
+
+We can see pretty neat sinusoids upon zooming in. When we look at the constellation plot of the output we see values only around the origin or on the unit circle. That is, the magnitude is either zero or one. To get the input message back, we send the received signal through complex to magnitude block and print it on the time sink. Upon zooming in we can read the message being repeated.
+
+When we reduce the interpolation value of repeat block, it samples much faster from the vector and the message is sent quicker i.e, in a shorter span of time.
+
+By the way, GNU radio doesn't allow dynamic changing of interpolation values on repeat block. So we need to stop the simulation, change value and start again.

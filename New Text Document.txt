@@ -1,0 +1,20 @@
+We can connect both rx and tx to the pluto and make it talk with itself. Fairly straightforward.
+
+Now let us build a doppler radar with this.
+
+We have tx_attenuation as a variable so as not to overload the receiver. More attenuation sends out a weaker signal.
+The span of the frequency spectrum is decided by the sample rate i.e, the maximum frequency it shows is half the sample rate. The resolution is adjusted using the number of fft points. The more the number of points, higher the resolution.
+Increasing number of points in time sink just changes how long the x axis is. However for the frequency sink, when we increase number of points, resolution increases and things become more pointy.
+
+The low pass filter takes in a lot of numbers so after process we keep only 1 in every 50 values. So after this block sample rate has to be divided by 50 in every block. We put in the low pass filter because all the action happens around 500 Hz and we don't need higher frequencies.
+
+Our objective is to hear through the speakers, the frequency caused due to the motion. For this we need to remove the big spike at 500 Hz of the actual signal sent. Therefore we put a band reject filter here. We add a multiply constant block just to amplify the volume. We then connect this to the audio sink at 48 KHz.
+
+Even after the band reject filter, a little bit of the main spike is left but not much.
+When we move our hand quickly towards or away from the antennas, we see small spikes showing up on the band rejected wave and correspondingly we can hear the beeps associated with it.
+
+Maybe we can put a bandpass filter after this to remove the noise of higher frequencies when we are not moving the hand.
+We can see a slight delay in the hand moving and the sound because it takes a little time to process all the data.
+
+
+

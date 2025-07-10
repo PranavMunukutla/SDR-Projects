@@ -1,0 +1,5 @@
+Chunks to bits acts as a look up table where we can check what each symbol corresponds to.
+Here for simple PSK we are using only 0 or 180 phase shift. So bits 0 and 1 correspond to -1 and +1.
+Because we are talking from pluto back to itself, the clock is common and we do not need an offset.
+We notice the message sent and received are reversed because in the constellation plot because of all the movement, the phases might be reverse matched.
+If we communicated from one device to another, the clocks wouldn't match and the frequency difference would show up on the frequency plot peak. Then we would have to play with offset and get it to look the way it looks now. Overall this is more difficult to see than ook and ASK

@@ -1,0 +1,2 @@
+Very similar to PSK. Just a small change in the chunks to bits block. QPSK is more susceptible to noise than binary PSK but we can achieve higher data rates.
+However one major issue we notice is that the energy is distributed into unwanted side lobes because of the quick transitions. We need to fix this using pulse shaping.
