@@ -1,0 +1,17 @@
+When we connect an SDR and sample the data, we get a list of complex numbers. We need to understand what these numbers are. To understand this let us have a signal source that mimics the SDR input. We will connect to this to a time sink, frequency sink and a constellation sink. 
+
+In the time domain we see 2 sinusoids - one blue and the other red. The blue wave represents the real part of the signal and the red wave represents the imaginary part. When we have a positive frequency, we notice that the peak of the imaginary wave is to the right of the peak of real wave i.e, the real part is positive cosine and imaginary part is positive sine. However when we have a negative frequency, we notice that the peak of the imaginary wave is to the left of the peak of the real wave i.e, the real part is a positive cosine but the imaginary part is a negative sine.
+
+At low frequencies the time domain might not look like a proper sine wave as we don't have enough points to build it but increasing the frequency will make the sine wave appear. At these frequencies however we can see the constellation plot being a single point or an arc that is travelling the unit circle in anti clockwise direction for positive frequency and clockwise direction for negative frequency. 
+
+When the frequencies is a multiple of the no. of point in the constellation plot description, we get a complete unit circle but at some frequencies we may keep sampling the same points leading to only a few points on the circle being visible on the constellation plot.
+
+The frequency sink plot displays a peak at the frequency we have set to the signal source.
+
+When we change the input waveform from sinusoidal to waveforms like square, triangular or sawtooth, we notice the time domain wave reflecting the change. In the frequency sink we get the fundamental frequency along with its harmonics and the constellation shapes differ. For a square wave, we see the constellation as the vertices of a square. For a triangular wave, we see a rhombus and for a sawtooth wave we only see two line segments.
+
+For a purely real signal produced by adding a wave with its complex conjugate, we see that the constellation plot is only the real line with no imaginary component. In the time sink, we notice the imaginary wave constant at 0 but a sinusoidal real wave.
+
+When we examine the product of two waves, we see a peak in the frequency domain at the sum of both frequencies.
+
+Taking the arctangent of the real cosine wave mimics sending the signal through an amplifier as arctangent is linear around the origin and saturates as we go away from the origin. We see a square wave in the time domain representing cutoff.
